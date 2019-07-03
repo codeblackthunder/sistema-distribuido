@@ -1,0 +1,60 @@
+package controller;
+
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.net.Socket;
+
+/* [CONTROLLER]
+ * 
+ * 1-extends da classe thread
+ * 2-criar atributos [socket cliente,objectOutputStream e objectInputStream]
+ * 2.1 objectOutputStream = dados cliente ------->servidor
+ * 2.2 objectInputStream = dados  cliente <-------servidor
+ * 2.3 criar um construtor recebendo o socket cliente
+ * 3-sobreescrever o metodo run
+ * 3.1 criar try catch
+ * 3.2 instanciar o ObjectOutputStream e o ObjectInputStream
+ * 3.3 colocar como parametro o metodo do cliente respetivo de input e output
+ * 4 criar um loop
+ * 4.1 capturamos as mensagens do cliente atráves do input 
+ * 4.2 usamos metodo readObject().toString para ler a msg como uma string
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * */
+
+public class ChatController extends Thread{
+	private Socket cliente;
+	private ObjectOutputStream out;
+	private ObjectInputStream in;
+	
+	
+	
+	
+public ChatController(Socket cliente) {
+		this.cliente = cliente;
+	}
+
+
+
+
+@Override
+public void run() {
+	try {
+		in = new ObjectInputStream(cliente.getInputStream());
+		out = new ObjectOutputStream(cliente.getOutputStream());
+		while(true) {
+			String msg = in.readObject().toString();
+			System.out.println("Mensagem enviado do cliente>>>"+msg)
+			;
+		}
+	} catch (Exception e) {
+		// TODO: handle exception
+	}
+}
+}

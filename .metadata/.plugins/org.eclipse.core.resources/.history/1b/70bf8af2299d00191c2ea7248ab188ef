@@ -1,0 +1,29 @@
+package controller;
+
+/* [CONTROLLER]
+ * 
+ * 1-extends da classe thread
+ * 2-criar atributos [socket cliente,objectOutputStream e objectInputStream]
+ * 2.1 objectOutputStream = dados cliente ------->servidor
+ * 2.2 objectInputStream = dados  cliente <-------servidor
+ * 2.3 criar um construtor recebendo o socket cliente
+ * 3-sobreescrever o metodo run
+ * 3.1 criar try catch
+ * 3.2 instanciar o ObjectOutputStream e o ObjectInputStream
+ * 3.3 colocar como parametro o metodo do cliente respetivo de input e output
+ * 4 criar um loop
+ * 4.1 Dentro do loop colocar as regras de negocio neste caso enviar mensagem 
+ * 4.2 usamos metodo readObject().toString para ler a msg como uma string
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * */
+
+public class ChatController {
+
+}

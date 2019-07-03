@@ -1,0 +1,51 @@
+package server;
+
+import java.io.IOException;
+import java.net.ServerSocket;
+import java.net.Socket;
+
+import controller.ChatController;
+
+public class Servidor {
+
+	/*
+	 * checklist
+	 *            [SERVIDOR]
+	 *   1-criar serversocket (Servidor)indicando a porta,colocando o comando no try catch
+	 *   2-criar loop para ficar ouvindo se o cliente foi conectado com o servidor
+	 *   2.1-criar um socket de cliente
+	 *   2.2-conectar este socket com o servidor usando o método acept();
+	 *   
+	 *   -----------para seguir pro passo 3 é necessário implementar a classe controller----------------
+	 *   3 chamar o controller (thread) por parametro colocar nosso cliente e start na thread
+	 *   
+	 *   
+	 *   
+	 *   
+	 *   
+	 *   
+	 *   */
+	
+	
+	
+	public static void main(String[] args) {
+		try {
+			ServerSocket servidor = new ServerSocket(6500);
+			while(true) {
+				Socket cliente = servidor.accept();
+				ChatController controller = new ChatController(cliente);
+				controller.start();
+				
+			}
+		} catch (IOException e) {
+		
+			e.printStackTrace();
+		}
+		
+		
+
+		
+		
+	}
+
+}
